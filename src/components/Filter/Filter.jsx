@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Filter = ({ value, onChange }) => (
   <LabelWrapper>
-    Search contacts:
+    Search contacts by name:
     <Input type="text" value={value} onChange={onChange} />
   </LabelWrapper>
 );

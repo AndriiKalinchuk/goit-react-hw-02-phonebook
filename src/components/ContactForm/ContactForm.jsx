@@ -38,7 +38,7 @@ export default class Form extends Component {
           />
         </FormField>
         <FormField>
-          Phone number
+          Number
           <Input
             type="tel"
             name="number"
