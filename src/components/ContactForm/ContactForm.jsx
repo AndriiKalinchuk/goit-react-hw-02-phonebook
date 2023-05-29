@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { ContactForm, FormField, Button, Input } from './ContactForm.styled';
 
 export default class Form extends Component {
   state = {
@@ -22,10 +24,10 @@ export default class Form extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <ContactForm onSubmit={this.handleSubmit}>
+        <FormField>
           Name
-          <input
+          <Input
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -34,10 +36,10 @@ export default class Form extends Component {
             value={this.state.name}
             onChange={this.handleChange}
           />
-        </label>
-        <label>
+        </FormField>
+        <FormField>
           Phone number
-          <input
+          <Input
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -46,9 +48,13 @@ export default class Form extends Component {
             value={this.state.number}
             onChange={this.handleChange}
           />
-        </label>
-        <button type="submit">Add contact</button>
-      </form>
+        </FormField>
+        <Button type="submit">Add contact</Button>
+      </ContactForm>
     );
   }
 }
+
+Form.propType = {
+  onSubmit: PropTypes.func.isRequired,
+};
